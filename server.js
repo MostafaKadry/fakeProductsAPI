@@ -1,10 +1,16 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
+const cors = require('cors')
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+app.use(cors({
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allow these headers
+}));
 // Middleware to parse JSON
 app.use(express.json());
 
